@@ -19,25 +19,26 @@ $supplements = [
 $title = "Composer votre glace";
 $ingredients = [];
 $total = 0;
-foreach (['parfum', 'supplement'] as $name) {
+foreach (['parfum', 'supplement', 'cornet'] as $name) {
     if (isset($_GET[$name])) {
         $liste = $name . 's';
-    foreach ($_GET[$name] as $value) {
-        if(isset($$liste[$value])) {
-            $ingredients[] = $value;
-            $total += $$liste[$value];
+        $choix = $_GET[$name];
+        if (is_array($choix)) {
+            foreach ($choix as $value) {
+            if(isset($$liste[$value])) {
+                $ingredients[] = $value;
+                $total += $$liste[$value];
+            }
         }
-    }
+        } else {
+            if(isset($$liste[$choix])) {
+            $ingredients[] = $choix;
+            $total += $$liste[$choix];
+         }
+        }
    }
 }
 
-if (isset($_GET['cornet'])) {
-    $cornet = $_GET['cornet'];
-        if(isset($cornets[$cornet])) {
-            $ingredients[] = $cornet;
-            $total += $cornets[$cornet];
-        }
-    }
 require 'header.php'
 ?>
 
