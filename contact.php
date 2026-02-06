@@ -2,6 +2,13 @@
 $title = "Nous contacter";
 require_once 'config.php';
 require_once 'functions.php';
+date_default_timezone_set('Africa/Kinshasa');
+// Récupérer l'heure d'aujourd'hui $heure
+$heure = (int)date('G');
+// Récupérer les créneaux d'aujourd'hui $creneaux
+$creneaux = CRENEAUX[date('N') - 1];
+$ouvert = in_creneaux($heure, $creneaux);
+$color = $ouvert ? 'green' : 'red';
 require 'header.php'; 
 ?>
 
@@ -14,9 +21,18 @@ require 'header.php';
     </div>
     <div class="col-md-4">
         <h2>Horaire d'ouverture</h2>
+        <?php if($ouvert): ?>
+            <div class="alert alert-success">
+                Le magasin est ouvert
+            </div>
+        <?php else: ?>
+            <div class="alert alert-danger">
+                Le magasin est fermé
+            </div>
+        <?php endif; ?>
         <ul>
             <?php foreach(JOURS as $k => $jour): ?>
-                <li <?php if($k + 1 === (int)date('N')): ?> style="color: green;" <?php endif ?>>
+                <li <?php if($k + 1 === (int)date('N')): ?> style="color: <?= $color ?>" <?php endif ?>>
                     <strong><?= $jour ?></strong> :
                     <?= creneaux_html(CRENEAUX[$k]); ?>
                 </li>
