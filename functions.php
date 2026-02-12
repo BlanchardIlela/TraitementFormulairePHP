@@ -16,6 +16,7 @@ HTML;
     {
       return 
         nav_item('./index.php', 'Accueil', $linkclass) .
+        nav_item('./menu.php', 'Menu', $linkclass) .
         nav_item('./contact.php', 'Contact', $linkclass);
     }
 
