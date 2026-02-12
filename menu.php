@@ -1,7 +1,10 @@
 <?php
+require_once 'functions.php';
 $title = "Notre menu";
-$menu = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'menu.tsv');
-$lignes = explode(PHP_EOL, $menu);
+$lignes = file(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'menu.tsv');
+foreach ($lignes as $k => $ligne) {
+    $lignes[$k] = explode("\t", trim($ligne));
+}
 require 'elements/header.php';
 ?>
 
