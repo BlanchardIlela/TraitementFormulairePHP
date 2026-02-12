@@ -6,7 +6,7 @@ if (!empty($_POST['email'])) {
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         
     } else {
-        $error = "Email invalid";
+        $error = "Email invalide";
     }
     
 }
@@ -20,9 +20,15 @@ require 'elements/header.php';
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia fugiat voluptates dolor minima est, recusandae repellendus vero quod? Eaque aspernatur quae cupiditate velit minima quod quam blanditiis quo incidunt placeat?
 </p>
 
-<form action="/newsletter.php" method="post" class="form-inline">
+<?php if($error): ?>
+    <div class="alert alert-danger">
+        <?= $error ?>
+    </div>
+<?php endif ?>
+
+<form action="./newsletter.php" method="post" class="form-inline">
     <div class="form-group">
-        <input type="email" name="email" id="" placeholder="Entrer votre email" required class="form-control">
+        <input type="email" name="email" id="" placeholder="Entrer votre email" required class="form-control" value="<?= htmlentities($email) ?>">
     </div>
     <button type="submit" class="btn btn-primary">S'inscrire</button>
 </form>
