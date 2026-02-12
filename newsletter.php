@@ -5,7 +5,10 @@ $email = null;
 if (!empty($_POST['email'])) {
     $email = $_POST['email'];
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $file = __DIR__ . DIRECTORY_SEPARATOR . 'emails' . DIRECTORY_SEPARATOR . date('Y-m-d');
+        file_put_contents($file, $email . PHP_EOL, FILE_APPEND);
         $success = "Votre email a bien été enregistré";
+        $email = null;
     } else {
         $error = "Email invalide";
     }
