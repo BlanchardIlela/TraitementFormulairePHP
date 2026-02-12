@@ -38,7 +38,7 @@ require 'elements/header.php';
 
 <form action="./newsletter.php" method="post" class="form-inline">
     <div class="form-group">
-        <input type="email" name="email" id="" placeholder="Entrer votre email" required class="form-control" value="<?= htmlentities($email) ?>">
+        <input type="email" name="email" id="" placeholder="Entrer votre email" required class="form-control">
     </div>
     <button type="submit" class="btn btn-primary">S'inscrire</button>
 </form>
