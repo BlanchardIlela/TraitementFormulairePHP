@@ -1,6 +1,6 @@
 <?php 
 $title = "Nous contacter";
-require_once 'config.php';
+require_once 'data/config.php';
 require_once 'functions.php';
 date_default_timezone_set('Africa/Kinshasa');
 $heure = (int)($_GET['heure'] ?? date('G'));
@@ -8,7 +8,7 @@ $jour = (int)($_GET['jour'] ?? date('N') - 1);
 $creneaux = CRENEAUX[$jour];
 $ouvert = in_creneaux($heure, $creneaux);
 $color = $ouvert ? 'green' : 'red';
-require 'header.php'; 
+require 'elements/header.php'; 
 ?>
 
 <div class="row">
@@ -54,4 +54,4 @@ require 'header.php';
 
 
 
-<?php require 'footer.php'; ?>
+<?php require 'elements/footer.php'; ?>
