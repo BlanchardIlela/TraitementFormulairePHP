@@ -1,10 +1,11 @@
 <?php
 require_once 'functions.php';
 $title = "Notre menu";
-$lignes = file(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'menu.tsv');
+$lignes = file(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'menu.csv');
 foreach ($lignes as $k => $ligne) {
-    $lignes[$k] = explode("\t", trim($ligne));
+    $lignes[$k] = str_getcsv(trim($ligne, " \n\r\t\v\x00,"));
 }
+dump($lignes);
 require 'elements/header.php';
 ?>
 
