@@ -1,4 +1,16 @@
 <?php 
+$error = null;
+$email = null;
+if (!empty($_POST['email'])) {
+    $email = $_POST['email'];
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        
+    } else {
+        $error = "Email invalid";
+    }
+    
+}
+
 require 'elements/header.php';
 ?>
 
