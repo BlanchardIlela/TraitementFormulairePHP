@@ -20,3 +20,10 @@ function nombre_vues(): string {
     return file_get_contents(($fichier));
 
 }
+
+function nombre_vues_mois(int $annee, int $mois) {
+    $mois = str_pad($mois, 2, '0', STR_PAD_LEFT);
+    $fichier = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'compteur-' . $annee . '-' . $mois;
+    $fichiers = glob($fichier);
+    $total = 0;
+}
