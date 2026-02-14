@@ -1,9 +1,13 @@
 <?php 
 require 'functions/compteur.php';
-$total = nombre_vues();
 $annee = (int)date('Y');
 $annee_selection = empty($_GET['annee']) ? null : (int)$_GET['annee'];
 $mois_selection = empty($_GET['mois']) ? null : $_GET['mois'];
+if ($annee_selection && $mois_selection) {
+    $total = nombre_vues_mois($annee_selection, $mois_selection);
+}else{
+    $total = nombre_vues();
+}
 $mois = [
     '01' => 'Janvier',
     '02' => 'Février',
