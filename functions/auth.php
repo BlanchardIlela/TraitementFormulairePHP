@@ -8,7 +8,7 @@ function est_connecte (): bool{
 
 function forcer_utilisateur_connecte (): void {
     if (!est_connecte()) {
-    header('Location: /login.php');
+    header('Location: ./login.php');
     exit();
     
     }
