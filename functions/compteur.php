@@ -23,7 +23,7 @@ function nombre_vues(): string {
 
 function nombre_vues_mois(int $annee, int $mois): int  {
     $mois = str_pad($mois, 2, '0', STR_PAD_LEFT);
-    $fichier = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'compteur-' . $annee . '-' . $mois;
+    $fichier = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'compteur-' . $annee . '-' . $mois . '-' . '*';
     $fichiers = glob($fichier);
     $total = 0;
     foreach ($fichiers as $fichier) {
@@ -34,7 +34,7 @@ function nombre_vues_mois(int $annee, int $mois): int  {
 
 function nombre_vues_details_mois(int $annee, int $mois): array  {
     $mois = str_pad($mois, 2, '0', STR_PAD_LEFT);
-    $fichier = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'compteur-' . $annee . '-' . $mois;
+    $fichier = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'compteur-' . $annee . '-' . $mois . '-' . '*';
     $fichiers = glob($fichier);
     $visites = [];
     foreach ($fichiers as $fichier) {
