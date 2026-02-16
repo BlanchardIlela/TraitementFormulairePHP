@@ -64,7 +64,7 @@ require 'elements/header.php';
                     <?php foreach($detail as $ligne): ?>
                         <tr>
                             <td><?= $ligne['jours'] ?></td>
-                            <td><?= $ligne['visites'] ?>Visite <?= $ligne['visites'] > 1 ? 's' : '' ?></td>
+                            <td><?= $ligne['visites'] ?> Visite<?= $ligne['visites'] > 1 ? 's' : '' ?></td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>
