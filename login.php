@@ -1,6 +1,29 @@
 <?php
+$erreur = null;
+if (!empty($_POST['pseudo']) && !empty($_POST['motdepasse'])) {
+    if ($_POST['pseudo'] === 'John' && $_POST['motdepasse'] === 'Doe') {
+        session_start();
+        $_SESSION['connecte'] = 1;
+        header('Location: dashboard.php');
+    }else {
+        $erreur = "Identifiant incorrects";
+    }
+}
+
+require 'functions/auth.php';
+if (est_connecte()) {
+    header('Location: ./dashboard.php');
+    exit();
+}
+
 require 'elements/header.php'
 ?>
+
+<?php if($erreur): ?>
+    <div class="alert alert-danger">
+        <?= $erreur ?>
+    </div>
+<?php endif ?>
 
 <form action="login.php" method="post">
     <div class="form-group">
