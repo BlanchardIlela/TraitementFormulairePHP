@@ -11,9 +11,9 @@ if (isset($_GET['chiffre'])) {
     }else{
         $succes = "Bravo ! vous avez deviné le chiffre <strong>$aDeviner</strong>";
     }
+    $value = (int)$_GET['chiffre'];
 }
-$value = (int)$_GET['chiffre'];
-require 'header.php';
+require 'elements/header.php';
 ?>
 
 <?php if($erreur): ?>
@@ -29,11 +29,11 @@ require 'header.php';
 
 <form action="./jeu.php" method="GET">
     <div class="form-group">
-        <input type="number" class="form-control" name="chiffre" placeholder="Entre 0 et 1000" value="<?= $value ?>">
+        <input type="number" class="form-control" name="chiffre" placeholder="Entre 0 et 1000" value="<?= ($value) ?>">
     </div>
     <button type="submit" class="btn btn-primary">Deviner</button>
 </form>
 
 
 
-<?php require 'footer.php' ?>
+<?php require 'elements/footer.php' ?>
